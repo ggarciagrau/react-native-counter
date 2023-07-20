@@ -17,8 +17,10 @@ export const Fab = ({onPressFn, children, orientation}: Props) => {
   })();
 
   return (
-    <TouchableOpacity style={[styles.location, orientationStyle]} onPress={() => onPressFn()}>
-      <View style={styles.fab}>
+    <TouchableOpacity
+      style={[styles.location, orientationStyle]}
+      onPress={() => onPressFn()}>
+      <View style={[styles.fab, styles.shadow]}>
         <Text style={styles.fabText}>{children}</Text>
       </View>
     </TouchableOpacity>
@@ -48,5 +50,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     alignSelf: 'center',
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+
+    elevation: 12,
   },
 });
