@@ -10,14 +10,14 @@ type Props = {
 export const Fab = ({onPressFn, children, orientation}: Props) => {
   const orientationStyle = (() => {
     if (orientation == 'left') {
-      return styles.fabWrapperL;
+      return styles.left;
     } else if (orientation == 'right') {
-      return styles.fabWrapperR;
+      return styles.right;
     }
   })();
 
   return (
-    <TouchableOpacity style={orientationStyle} onPress={() => onPressFn()}>
+    <TouchableOpacity style={[styles.location, orientationStyle]} onPress={() => onPressFn()}>
       <View style={styles.fab}>
         <Text style={styles.fabText}>{children}</Text>
       </View>
@@ -26,14 +26,14 @@ export const Fab = ({onPressFn, children, orientation}: Props) => {
 };
 
 const styles = StyleSheet.create({
-  fabWrapperL: {
+  location: {
     position: 'absolute',
     bottom: 25,
+  },
+  left: {
     left: 25,
   },
-  fabWrapperR: {
-    position: 'absolute',
-    bottom: 25,
+  right: {
     right: 25,
   },
   fab: {
