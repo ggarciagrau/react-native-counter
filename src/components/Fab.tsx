@@ -1,5 +1,13 @@
 import {ReactNode} from 'react';
-import {StyleSheet, TouchableNativeFeedback, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  TouchableNativeFeedback,
+  View,
+  Text,
+  Platform,
+  TouchableNativeFeedbackComponent,
+  TouchableOpacity,
+} from 'react-native';
 
 type Props = {
   onPressFn: () => void;
@@ -18,13 +26,24 @@ export const Fab = ({onPressFn, children, orientation}: Props) => {
 
   return (
     <View style={[styles.location, orientationStyle]}>
-      <TouchableNativeFeedback
-        onPress={() => onPressFn()}
-        background={TouchableNativeFeedback.Ripple('red', false, 30)}>
-        <View style={[styles.fab, styles.shadow]}>
-          <Text style={styles.fabText}>{children}</Text>
-        </View>
-      </TouchableNativeFeedback>
+      {Platform.OS == 'android' && (
+        <TouchableNativeFeedback
+          onPress={() => onPressFn()}
+          background={TouchableNativeFeedback.Ripple('red', false, 30)}>
+          <View style={[styles.fab, styles.shadow]}>
+            <Text style={styles.fabText}>{children}</Text>
+          </View>
+        </TouchableNativeFeedback>
+      )}
+
+      {Platform.OS == 'ios' && (
+        <TouchableOpacity onPress={() => onPressFn()}
+        activeOpacity={0.8}>
+          <View style={[styles.fab, styles.shadow]}>
+            <Text style={styles.fabText}>{children}</Text>
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
