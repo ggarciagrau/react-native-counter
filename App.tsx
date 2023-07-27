@@ -5,14 +5,17 @@ import {BoxObjectModelScreen} from './src/screens/BoxObjectModelScreen';
 import {DimensionsScreen} from './src/screens/DimensionsScreen';
 import {PositionScreen} from './src/screens/PositionScreen';
 import { FlexScreen } from './src/screens/FlexScreen';
+import { TaskScreen9 } from './src/screens/TaskScreen9';
 
 export const App = () => {
   return (
     <SafeAreaView
       style={{
+        // Notch color
+        backgroundColor: 'blue',
         flex: 1,
       }}>
-      <FlexScreen />
+      <TaskScreen9 />
     </SafeAreaView>
   );
 };
