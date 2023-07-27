@@ -4,6 +4,7 @@ import {CounterScreen} from './src/screens/CounterScreen';
 import {BoxObjectModelScreen} from './src/screens/BoxObjectModelScreen';
 import {DimensionsScreen} from './src/screens/DimensionsScreen';
 import {PositionScreen} from './src/screens/PositionScreen';
+import { FlexScreen } from './src/screens/FlexScreen';
 
 export const App = () => {
   return (
@@ -11,7 +12,7 @@ export const App = () => {
       style={{
         flex: 1,
       }}>
-      <PositionScreen />
+      <FlexScreen />
     </SafeAreaView>
   );
 };
